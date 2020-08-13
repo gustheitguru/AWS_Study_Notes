@@ -1,0 +1,113 @@
+S3 - Key Terms
+
+backet policies
+Access Control List
+
+S3 
+
+Excryption In Transite - HTTPS bewteen computer and server encryption SSL/TLS
+
+Encryption At Rest (Server Side) - 2 ways
+
+	1) Server Side - 
+		s3 Managed Keys - SSE-S3 Amazon manges all keys - AES256
+		AWS Key management Service - Mange keys with AWS -SSE-KMS
+		Customer Provided Key - Give Amazon Key we manage - SSE-C
+	2) Client Side Encryption
+		encrypte file and and upload to AWS
+
+_______________________
+
+Versioning 
+
+Stores all version of files
+
+delete file - will put a delete marker on the file and use the previous version. But not remove it from the system. have to do a manual delete of the file
+
+versioning can not be disabled only suspended
+
+Versioning has MFA delete capabilites. for layer of security
+
+_______________________
+
+Life cycle management
+
+AWS- Bucket - Management Lifecycle
+
+rule can be applied to current and or previous versions 
+
+setup life cycle rules to move thigns around from different storage teirs to glacier to permetly delete it as well. 
+
+Automate between different tiers
+
+use it in conjunction with versioning
+
+can be applied to current and perviouse versions of files
+
+__________________
+
+S3 object Lock - WORM Mobdel - can be set to file or folder (object or bucket) - Governance or compliance
+
+store object - write once read many - helps to lock file for fixed time or indefiently. protects from objects beening changd or deleted. 
+
+goverance mode - user can't overwrite or delete an object version or alter its lock setting unless they have special permissions
+
+compliance mode - a protected object version can't be overwritten or deleted by any user, not even ROOT user, during time of retenetion period. 
+
+Retention period - protect object version of a set period of time. once the object retention period is up you can then delete or change file 
+
+legal holds - a legal hold prevents an object version from being overwritten or deleted. no retention period remain in effect until it is removed. needs S3:PutObjectLegalHold Permission group. 
+
+Glacier Vault lock - S3 Glacier Vault Lock allows you to easily deploy and enforce compliance controls for individual S3 Glacier vaults with a vault lock policy. You can specify controls, such as WORM (Write Once Read Many), in a vault lock policy and lock the policy from future edits. Once locked, the policy can no longer be changed. 
+
+__________________
+
+S3 Multipart upload - Parallelize upload by specifying byte range. Used to speed up uploads recommend for files above 100mb and required for files over 5gb
+
+S3 Byte-Range Fteches - Parallelize downloads by specifying byte range. Used to speed up downloads
+
+Prefixes - path name of file name between file. More prefixes the better the porformance 3,500 PIT/COPY/POST/DELETE and 5,500 GET/HEAD requests per seconds
+
+with 2 different prefixes you can get 11,000 GET/HEAD requests per second
+
+SSE-KMS Encrypted file only allowed 5,500, 10,000, 30,000 depeneding on region
+
+________________
+
+S3 Select - enables applications to retrieve only a subset of data, getting data by rows and columns, from an object by using simlle SQL expressions. Retrieving only data need for app you can improve performances up to 400% and up to 80% Cheaper
+
+Glacier Select - allows you to run SQL queries against glacier directly. 
+
+_________________________
+
+
+AWS Orginization - account management service that enables you to consolidate multipe aws account into an organization that you create and centrally mange.
+
+Consolidated Billing - the more you use the less you pay. on bill per aws account volume pricing discount
+
+_______________________
+
+Best Practices - Multi-Factor Authentication on root account - Primary account is only for Billing not for deploymnet of services - Enable/Disable AWS Services using Service Control Policies either on OU or Individual Accounts
+
+_______________________
+
+S3 Buckets Accross Multiple accounts - 
+
+3 ways to share buckets
+
+	1) Bucket policies & IAM (Applies across the entire bucket) only GUI no CLI
+	2) Bucket ACL & IAM (individual objects) Only GUI no CLI
+	3) Cross-account IAM Role. Programatic and Console access
+
+______________________
+
+Cross Region Replication 
+
+	1) versioning must be enabled on both the source and destination bucket
+	2) files in an existing bucket are not replicated automatically
+	3) all subsequent updated files will be reqplicated automatically
+	4) delete markers are not replicated
+	5) delete individual versions are not replicated
+	6) understand what Cross Region Replication is at a High Level
+
+

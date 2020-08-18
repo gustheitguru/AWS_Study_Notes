@@ -110,4 +110,63 @@ Cross Region Replication
 	5) delete individual versions are not replicated
 	6) understand what Cross Region Replication is at a High Level
 
+_____________________
+
+S3 Transfer Acceleration
+
+It is a utility that uses CloudFront Edge Network and allows you to upload directly to a URL at an Edge Location and then transfers that file to S3. Given a distinct URL
+
+____________________
+
+AWS DataSync
+
+	Moves large amount of data to AWS. install DataSync Agent on File Server or NAS and copies and pulls data to/From AWS. Does integraty checks on data.Connects to S3, Amazon EFS, or FSx. Copy meta data to and from AWS. used to move large amount data sets. Works with NFS/SMB. Schedule replication. able to copy within AWS EFS to EFS
+
+____________________
+
+CloudFront
+
+	Content Delivery Network (CDN) - Distributed Server that deliver web content based on Geo Location of User, Origin of Content, and Content Servers. 
+
+	Origin - Original Content lives - It can be S3, EC2, Elastic Load Balancer, Route53
+
+	Distribution - Name of CDN which is a collection of Edge Locations
+
+	Web Distribution - typically used for Websites
+
+	RTMP - used for Media Streaming - depracated 
+
+	You can clear Cached Objects but you will be charged for it
+
+____________________
+
+CloudFront 
+	
+		Signed URL - 1 URL per 1 File - has different ORigin points, Caching, Key-Value Pair account wide, can be filtered by 																									 Time - IP - path 
+
+		Signed Cookies - 1 Cookie to Mainy files
+
+		OAI - Origan Access Identy 
+
+__________________	
+
+S3 Signed URL - Connecto directly to S3 Bucket - URL has same permissions as IAM Users that created it, limited life time
+
+__________________
+
+Tips
+
+if you are using a EC2 then user CloudFront URL/Cookie 
+if connecting directly to Bucket use S3 URL
+
+____________________
+
+SnowBall - Can Import to and from S3 - It like having a local AWS onsite - CAn ship up to 100PB of Data - most cost effective to move data into/from AWS (time and price)
+
+
+
+
+
+
+
 

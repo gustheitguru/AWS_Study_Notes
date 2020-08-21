@@ -163,9 +163,24 @@ ____________________
 
 SnowBall - Can Import to and from S3 - It like having a local AWS onsite - CAn ship up to 100PB of Data - most cost effective to move data into/from AWS (time and price)
 
+__________________
 
+Storage Gateway - Connects an on-premises storage applicae with cloud-based storage to provide smealess and secure integration between site and cloud. 
+	
+	File Gateway - NFS or SMB access file system object sent 
+					S3. Will become native S3 objects associated in buckets
 
+	Volume Gateway - iSCSI snapshots of volumes incramental 
+					 backups. Virtual Disk drives
 
+	Stored Volumes - lets you store your data locally while
+					 asynchronously backing up to AWS. 
+
+	Cached Volumes = lets you use S3 as your primary data 
+					 storage while retaining frequently accessed data locally in your storage gateway
+
+	Tape Gateway - allows you to use virtual tapes to backup
+				   long term data archives to the cloud. Can you virtual tapes as needed. 
 
 
 

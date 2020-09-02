@@ -163,7 +163,9 @@ ____________________
 
 SnowBall - Can Import to and from S3 - It like having a local AWS onsite - CAn ship up to 100PB of Data - most cost effective to move data into/from AWS (time and price)
 
+___________________
 
+Athena - SQL on S3 Container to analyse types of data stored and usage. it is serverless 
 
 
 
